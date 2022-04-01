@@ -2,6 +2,13 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
+function addOneYear(){
+    let d = new Date();
+    let year = d.getFullYear();
+    let month = d.getMonth();
+    let day = d.getDate();
+    let result = new Date(year + 1, month, day);
+    }
 //Compiling a schema into a model 
 
 const flightSchema = new Schema({
