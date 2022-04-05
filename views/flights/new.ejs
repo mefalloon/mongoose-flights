@@ -1,33 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <title>Flights</title>
-</head>
-<body>
-    <h2>Enter a New Flight!</h2>
-<form action="/flights" method="POST">
-    <label>Airline:
-        <input type="text" name="airline">
-    </label><br>
+<%- include('../partials/header') %>
 
-    <label>Airport:
-        <input type="text" name="airport">
-    </label><br>
 
-    <label>Departure:
-        <input type="datetime-local" name="departs">
-    </label><br>
+ <body>
+     <h2>Enter a New Flight!</h2>
+ <h1>New Flight</h1>
+
+        <form action="/flights" method="POST" id="form1">
+
+            <label>Airline
+            <select name="airline">
+                <option value="American">American</option>
+                <option value="Delta">Delta</option>
+                <option value="Southwest">Southwest</option>
+                <option value="United">United</option>
+            </select>
+          </select>   
+          </label><br>
+               
+          
+           <label>Airport
+                <select name="airport" id="">
+                <option value="AUS">AUS</option>
+                <option value="DFW">DFW</option>
+                <option value="DEN">DEN</option>
+                <option value="LAX">LAX</option>
+                <option value="SAN">SAN</option>
+            </select>
+            </label><br>
+          
     
-    <label>Flight Number:
-        <input type="text" name="flightNo">
-    </label><br>
+           <label>Flight Number
+                <input type="text" name="flightNo"></label><br>
+            
+           <label>Departure Date
+                <input type="datetime-local" name="departs"></label><br>
+          
+            <button type="submit" form="form1" class="btn btn-success" id="submit-new-flight">Add Flight</button>
+       
+       
+       
+        </form>        
+ 
 
-    
-
-</form>
 </body>
-</html>
+</html>  

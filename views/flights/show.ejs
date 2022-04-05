@@ -1,0 +1,71 @@
+
+
+
+<%- include('../partials/header') %>
+
+<main id="show-flights-main">
+        <aside>
+            <div id="flight-info-title">
+                <h1>Flight Info</h1>
+            </div>
+                
+                <section id="show-page">
+                        <div class="show-info">Airline: <%= flight.airline %></div>
+                        <div class="show-info">Flight Number: <%= flight.flightNo %></div>
+                        <div class="show-info">Departs: <%= flight.departs %></div>
+                        <div class="show-info">Airport: <%= flight.airport %></div>
+                </section>
+                
+  
+                <section id="add-destination">
+                        <form action="/flights/<%= flight._id %>/destinations" method="POST" id="add-destination-form">
+                           
+                            <h2>Add Destination</h2> 
+                                <select name="airport" id="select-destination">
+                                    <option value="AUS">AUS</option>
+                                    <option value="DFW">DFW</option>
+                                    <option value="DEN">DEN</option>
+                                    <option value="LAX">LAX</option>
+                                    <option value="SAN">SAN</option>
+                                </select>
+
+                            
+                                <label>Arrival Time: 
+                                    <input type="datetime-local" name="arrival">
+                                </label><br>
+
+                                <input type="submit" class="btn btn-success" id="destination-btn" value="Add Destination">
+                        </form>     
+                </section>  
+
+                <section id="show-destinations">
+                        <% if (flight.destinations.length) { %>
+                            
+                            <thead>
+                                <th>Arrival Airport</th>
+                                <th>Arrival Time</th>
+                            </thead>
+                            <tbody>
+                            <% flight.destinations.forEach(function(destination){ %>
+                                <tr>
+                                    <td><%= destination.airport %></td>
+                                    <td><%= destination.arrival %></td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                         </table>
+                        
+                        <% } else { %>
+                        
+                            <p>No Destinations</p>
+                        
+                        <% } %>
+                </section>
+        </div>   
+       
+                    
+                    <a href="/flights/<%= flight._id %>/tickets/new" class="btn btn-primary btn-lg btn-block" id="new-ticket-btn">Create a new ticket</a>
+</main>            
+        </div>     
+
+
